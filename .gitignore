@@ -1,0 +1,54 @@
+# ===== Unity 生成的缓存目录（绝不提交，打开项目会自动重新生成）=====
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+[Ss]creenshots/
+
+# ===== 崩溃报告 / 日志 =====
+sysinfo.txt
+crashlytics-build.properties
+
+# ===== Unity / 编译器生成的中间文件 =====
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ===== 打包产物 =====
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# ===== 编辑器缓存目录 =====
+.vs/
+.idea/
+.vscode/
+
+# ===== Windows 系统文件 =====
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ===== Office 临时文件（如 ~$xxx.doc）=====
+~$*.doc
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# ===== macOS 系统文件 =====
+.DS_Store
