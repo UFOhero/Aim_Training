@@ -246,6 +246,62 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &497095254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497095256}
+  - component: {fileID: 497095255}
+  m_Layer: 0
+  m_Name: TargetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &497095255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497095254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e571826953583e74eb398fd9d173cbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetManager
+  targetBallPrefab: {fileID: 4939258121497349617, guid: c3d35a2870427cf4c99329c00b284364, type: 3}
+  ballCount: 3
+  boxWidth: 6
+  boxHeight: 5
+  boxDepth: 10
+  centerOffset: {x: 10, y: 0, z: 0}
+  autoPlaceInFrontOfCamera: 1
+  autoPlaceDistance: 10
+  autoRotatePlayerToFaceArea: 1
+  minSpacing: 2.5
+  debugLog: 1
+  showBoundsGizmo: 1
+--- !u!4 &497095256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497095254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.42857, y: 0, z: -11.42857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +490,7 @@ GameObject:
   - component: {fileID: 2094373594}
   - component: {fileID: 2094373593}
   - component: {fileID: 2094373595}
+  - component: {fileID: 2094373596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -494,7 +551,25 @@ MonoBehaviour:
   armThickness: 1
   gap: 0
   showCenterDot: 1
-  centerDotSize: 2
+  centerDotSize: 3
+--- !u!114 &2094373596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094373592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644ce077e9d0a8242a344b8f79449815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponViewModel
+  showWeapon: 1
+  handSide: 1
+  handOffset: {x: 320, y: -240}
+  weaponScale: 1.5
+  swayAmount: 0
+  swaySmooth: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -502,3 +577,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 2094373594}
+  - {fileID: 497095256}

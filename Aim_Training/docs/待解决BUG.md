@@ -33,3 +33,35 @@
 **发现日期**：2026-08-08
 
 ---
+
+## BUG-002：启动时玩家初始视角相对生成长方体中心向左偏移
+
+**状态**：🟡 待解决
+
+**出现位置**：`TargetManager.cs`（靶球管理器，启动自动定位）
+
+**问题描述**：
+启动游戏时，自动定位逻辑将生成长方体放到相机正前方（`Auto Place In Front Of Camera`），并尝试让玩家正对区域中心（`Auto Rotate Player To Face Area`），但玩家初始视角仍相对长方体中心**向左偏移约 20°**，无法正对区域中心。
+
+**当前表现**：
+- 球能生成在视野前方，启动无需转身 ✅
+- 但初始朝向偏左约 20°，玩家需要手动右转才能正对区域中心 ❌
+
+**背景与已排查方向**：
+- 场景结构：`Player`（位置 -1.43, 0, -11.43，旋转 0,0,0）+ 子物体 `PlayerCamera`（位置 0,0,0，旋转 0,0,0）。
+- autoPlace 将区域放在相机 forward 方向，并设置 `playerRoot.rotation = LookRotation(区域中心-玩家位置)`。
+- 但启动后仍有 20° 偏移，疑似：PlayerController 的视角旋转在 `Awake`/`Update` 中与 autoRotate 冲突，或 `PlayerCamera` 的实际朝向与 Player 根物体朝向不一致（相机可能挂在 PlayerCamera 子物体上，其自身旋转虽为 0，但父物体 Player 的旋转被 PlayerController 或其它逻辑覆盖）。
+- `PlayerController` 在 `Update` 中持续根据鼠标设置相机 pitch，但 yaw 是绕 Player 根物体旋转——启动瞬间 autoRotate 设置的旋转可能被后续 Update 覆盖或叠加。
+
+**影响**：
+- 影响开局体验（需小幅转动视角），不阻塞核心玩法。
+- 后续做正式开场动画/初始状态时可一并修正。
+
+**下一步建议**：
+- 在 `Start` 中先 autoRotate，再让 `PlayerController` 在启动后第一帧重置 yaw 基准，避免冲突。
+- 或将"玩家初始朝向"改为场景中手动摆放 Player 的旋转（去掉 autoRotate），让玩家在编辑器中摆好初始视角。
+- 排查 `PlayerController` 是否在 `Awake` 或首帧 `Update` 覆盖了旋转。
+
+**发现日期**：2026-08-08
+
+---
