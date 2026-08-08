@@ -488,11 +488,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CrosshairManager
   useCrossStyle: 1
   crosshairColor: {r: 1, g: 0, b: 0, a: 1}
+  useOutline: 1
+  outlineWidth: 1
   armLength: 0
   armThickness: 1
   gap: 0
   showCenterDot: 1
-  centerDotSize: 3
+  centerDotSize: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

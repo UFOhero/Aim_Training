@@ -52,3 +52,8 @@ ehthumbs.db
 
 # ===== macOS 系统文件 =====
 .DS_Store
+
+# ===== 本地备份与临时文件（不入库）=====
+_backups/
+*现状.png
+*截图*.png
